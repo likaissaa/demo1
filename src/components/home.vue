@@ -2,28 +2,14 @@
 	<div>
 		<el-container>
 			<!--设置一个header切换-->
+
 			<el-header>
-				<el-menu :default-active="$route.path" class="el-menu-demo" mode="horizontal" @select="handleSelect" router>
-					<el-menu-item index="/home/login">登录界面</el-menu-item>
-					<el-menu-item index="/home/loginsuccess">登录成功</el-menu-item>
-					<el-menu-item index="/home/register">
-						注册界面
-					</el-menu-item>
-					<el-menu-item index="/home/work/center">
-						工作中心
-					</el-menu-item>
-					<el-menu-item index="/home/reslist">
-						作品列表
-					</el-menu-item>
-					<el-menu-item index="/home/less">
-						less 学习
-					</el-menu-item>					
+				<el-menu :default-active="$route.path" class="el-menu-demo" mode="horizontal" background-color="#545c64"  text-color="#fff"
+                 active-text-color="#ffd04b" @select="handleSelect" router>
+          <el-menu-item index="/autocopy/first">自动化代码生成</el-menu-item>
 				</el-menu>
-				<div class="line"></div>
 			</el-header>
-			<el-main>
-				<router-view></router-view>
-			</el-main>
+        <router-view></router-view>
 		</el-container>
 	</div>
 </template>
@@ -43,9 +29,12 @@
 	}
 </script>
 
-<style type="text/css">
+<style  lang="less">
 	* {
 		margin: 0;
 		padding: 0;
 	}
+  .el-header{
+    padding:0;
+  }
 </style>

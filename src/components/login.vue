@@ -59,10 +59,10 @@
 						message: '登陆成功！',
 						type: "success"
 					})
-					
+
 					/*this.isloading = true;*/
 					this.$store.dispatch("login", this.form)
-					const redirect = decodeURIComponent(this.$route.query.redirect || '/home/loginsuccess');
+					const redirect = decodeURIComponent(this.$route.query.redirect || '/home/autocopy');
 					console.log("当前redirect="+redirect)
 					this.$router.push({
 						path: redirect
@@ -82,7 +82,7 @@
 	.line {
 		text-align: center;
 	}
-	
+
 	.el-form {
 		width: 360px;
 		margin: 50px auto;
@@ -92,17 +92,17 @@
 		box-shadow: 0 0 4px rgba(0, 0, 0, .5);
 		box-shadow: 0 0 2px rgba(0, 0, 0, .6) inset;
 	}
-	
+
 	.el-select {
 		width: 100%;
 	}
-	
+
 	.el-tabs {
 		border: 1px solid #ddd;
 		border-radius: 4px;
 		box-shadow: 0 0px 20px rgba(0, 0, 0, .5);
 	}
-	
+
 	.el-row {
 		margin-bottom: 20px;
 	}

@@ -1,13 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/home.vue'
+import Autocopy from '@/components/autocopy/autocopy.vue'
+import Control from '@/components/autocopy/control.vue'
 import Login from '@/components/login.vue'
-import Register from '@/components/register.vue'
-import Work from '@/components/work.vue'
-import Newhtml from '@/components/Newhtml.vue'
-import Reslist from '@/components/reslist.vue'
-import Loginsuccess from '@/components/loginsuccess.vue'
-import Less from '@/components/Less.vue'
+import Api from '@/components/autocopy/api'
 import store from '../store/index';
 
 Vue.use(Router)
@@ -15,59 +12,35 @@ Vue.use(Router)
 export const router = new Router({
 	mode: 'history',
 	routes: [{
-		path: '/',
-		redirect: '/home',
-		component: Home,
-		children: [{
-			path: '/home/',
-			redirect: '/home/login',
-			component: Login,
-			children: [{
-				path: '/home/login',
-			}]
-		}, {
-			path: '/home/register',
-			component: Register,
-			meta: {
-				auth: true
-			}
-		}, 
-		{
-			path:'/home/reslist',
-			component:Reslist,
-			meta:{
-				auth:true
-			}
-		},
-		{
-			path: '/home/work/center',
-			component: Work,
-			meta: {
-					auth: true
-			}
-		}, 
-		{
-			path: '/home/loginsuccess',
-			meta: {
-				auth: false
-			},
-			component: Loginsuccess,
-		},
-		{
-			path:'/home/less',
-			meta:{
-				auth:false
-			},
-			component:Less
-		},
-		{
+	  path:'',
+    redirect:'/autocopy/first'
+	},
+    {
+    path:'/autocopy/:id',
+    component:Home,
+    children:[
+      {
+        path:'',
+        component:Autocopy,
+        children:[
+          {
+            path:'auto',
+            component:Control
+          },
+          {
+            path:'api',
+            component:Api
+          }
+        ]
+      }
+    ]
+	  },
+    {
+      path:'/login',
+      component:Login
+    }
 
-			path: '*', //其他页面，强制跳转到登录页面
-			redirect: '/home/login'
-
-		},
-		]
-	}]
+ ]
 })
 
 if (sessionStorage.getItem('user')) {
@@ -77,13 +50,11 @@ if (sessionStorage.getItem('user')) {
 }
 
 router.beforeEach((to, from, next) => {
+  console.log("jinalile")
 	var auth = to.meta.auth
 	var path = to.path
 	var isLogin = Boolean(store.state.user.token) /*非空na么就是登录了*/
 	console.log("路由的token="+store.state.user.token)
-/*	console.log("111111"+auth)
-	console.log("22222222"+path)
-	console.log("33333333333"+!isLogin)*/
 	if(auth){
 		if(auth && !isLogin && path != '/home/login') {
 			console.log("**********")
