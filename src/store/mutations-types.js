@@ -1,2 +1,5 @@
-export const INCREMENT = 'INCREMENT' //登录成功
-export const DECREMENT = 'DECREMENT' //退出登录
+export const INCREMENT = 'INCREMENT' //添加
+export const DECREMENT = 'DECREMENT' //减少
+export const LOGIN= 'LOGIN'
+export const LOGINOUT = 'LOGINOUT'
+//登出

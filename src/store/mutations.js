@@ -1,20 +1,17 @@
-	import Vue from 'vue'
-	export const INCREMENT = (state) => {
-		console.log(state)
+import * as types from './mutations-types'
+const mutations = {
+	[types.INCREMENT](state) {
 		state.count++
-	}
-	export const DECREMENT = (state) => {
-		state.count--
-	}
-	export const INCREMENTWITHVALUE = (state, value) => {
-		state.count += value
-	}
-	export const LOGIN = (state, user) => {
-		sessionStorage.setItem('user', JSON.stringify(user))
-		state.user=JSON.parse(sessionStorage.getItem("user"))||{}
+	},
 
+	[types.DECREMENT](state) {
+		state.count--
+	},
+	[types.LOGIN](state, user) {
+		state.user = user;
+	},
+	[types.LOGINOUT](state,user) {
+		console.log(user)
 	}
-	export const LOGOUT = (state) => {
-		sessionStorage.removeItem('user')
-		state.user={}
-	}
+}
+export default mutations
