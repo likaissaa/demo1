@@ -4,11 +4,14 @@
 		<div class="red">
 			{{user}}
 		</div>
-		<div>当前数字{{count}}</div>
+		<div class="red"> 当前数字{{count}}</div>
 		<button type="button" @click="add">添加</button>
 		<button type="button" @click="dec">减少</button>
 		<div>
 			<el-button type="danger" @click="logout">退出</el-button>
+		</div>
+		<div>图标测试
+			<i class="fa fa-female fa-lg"></i> fa-lg
 		</div>
 	</div>
 </template>
@@ -47,10 +50,11 @@
 	}
 </script>
 
-<style type="text/css">
-	.red {
+<style lang="stylus" scoped rel="stylesheet/stylus">
+
+  @import "~common/stylus/icon.styl"
+	.red 
 		color: red;
 		font-size: 30px;
 		border: 2px solid black;
-	}
 </style>
