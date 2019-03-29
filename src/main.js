@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+import vueMagnify from 'vue-magnify'
 import store from './store/index';
 import {
 	router
@@ -10,6 +11,7 @@ import axios from './axios/http.js'
 import ElementUI from 'element-ui'
 
 import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(vueMagnify)
 Vue.use(ElementUI, {
 	size: 'small'
 })

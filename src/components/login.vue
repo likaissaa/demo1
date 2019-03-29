@@ -16,6 +16,7 @@
 </template>
 
 <script>
+	import {mapMutations} from 'vuex'
 	export default {
 		data() {
 				return {
@@ -59,13 +60,9 @@
 						message: '登陆成功！',
 						type: "success"
 					})
-
-					/*this.isloading = true;*/
-					this.$store.dispatch("login", this.form)
-					const redirect = decodeURIComponent(this.$route.query.redirect || '/home/autocopy');
-					console.log("当前redirect="+redirect)
+					this.login(name);
 					this.$router.push({
-						path: redirect
+						path: '/loginsuccess'
 					})
 				} else {
 					this.$message({
@@ -73,7 +70,10 @@
 						type: "error"
 					})
 				}
-			}
+			},
+			...mapMutations({
+					login: 'LOGIN'
+			})
 		}
 	}
 </script>

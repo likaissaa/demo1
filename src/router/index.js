@@ -1,44 +1,37 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '@/components/home.vue'
-import Autocopy from '@/components/autocopy/autocopy.vue'
-import Control from '@/components/autocopy/control.vue'
+import Register from '@/components/register.vue'
+import Less from '@/components/less.vue'
 import Login from '@/components/login.vue'
-import Api from '@/components/autocopy/api'
+import Work from '@/components/work.vue'
 import store from '../store/index';
-
+import Loginsuccess from '@/components/loginsuccess'
 Vue.use(Router)
+ // 今后使用异步加载路由的方式开发
 
 export const router = new Router({
 	mode: 'history',
-	routes: [{
-	  path:'',
-    redirect:'/autocopy/first'
-	},
+	routes: [
     {
-    path:'/autocopy/:id',
-    component:Home,
-    children:[
-      {
-        path:'',
-        component:Autocopy,
-        children:[
-          {
-            path:'auto',
-            component:Control
-          },
-          {
-            path:'api',
-            component:Api
-          }
-        ]
-      }
-    ]
+    path:'/',
+    component:Login,
 	  },
     {
-      path:'/login',
-      component:Login
-    }
+      path:'/less',
+      component:Less
+		},
+		{
+			path: '/register',
+			component: Register
+		},
+		{
+			path: '/work',
+			component: Work
+		},
+		{
+			path: '/loginsuccess',
+			component: Loginsuccess
+		}
 
  ]
 })

@@ -2,8 +2,11 @@
 	<div>
 		welcome
 		<div class="red">
-			{{user.username}}
+			{{user}}
 		</div>
+		<div>当前数字{{count}}</div>
+		<button type="button" @click="add">添加</button>
+		<button type="button" @click="dec">减少</button>
 		<div>
 			<el-button type="danger" @click="logout">退出</el-button>
 		</div>
@@ -12,19 +15,34 @@
 
 <script type="text/javascript">
 	import {
-		mapState
+		mapGetters,mapMutations,mapActions
 	} from 'vuex'
 	export default {
-		computed: mapState({
-			user: state => state.user
-		}),
+		computed:{
+			...mapGetters([
+				'user',
+				'count'
+			])
+		},
 		methods: {
 			logout() {
-				this.$store.dispatch("logout")
-				this.$router.replace({
-					path: '/home/login'
-				})
-			}
+				this.loginout("hehe");
+			    this.$router.back();
+			},
+			add() {
+				this.increment(this.count).then((res)=> console.log(res));
+			},
+			dec() {
+				this.decrement(this.count);
+			},
+			...mapMutations({
+				loginout : 'LOGINOUT'
+			}),
+			...mapActions([
+				'increment',
+				'decrement'
+			])
+
 		}
 	}
 </script>

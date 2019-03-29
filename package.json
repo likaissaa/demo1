@@ -1,7 +1,7 @@
 {
   "name": "vuedemo",
   "version": "1.0.0",
-  "description": "vuedemo",
+  "description": "644786607@qq.com lyh",
   "author": "lyh",
   "private": true,
   "scripts": {
@@ -14,6 +14,7 @@
     "clipboard": "^2.0.1",
     "element-ui": "^2.1.0",
     "vue": "^2.5.2",
+    "vue-magnify": "^1.0.1",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
@@ -36,6 +37,8 @@
     "html-webpack-plugin": "^2.30.1",
     "less": "^3.0.4",
     "less-loader": "^4.1.0",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
     "node-notifier": "^5.1.2",
     "optimize-css-assets-webpack-plugin": "^3.2.0",
     "ora": "^1.2.0",
