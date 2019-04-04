@@ -1,6 +1,7 @@
 <template>
 <div>123</div>
-<div>789</div>
+<div>456</div>
+  <span>hehadfa;ja</span>
 </template>
 
 <script type="text/ecmascript-6">
