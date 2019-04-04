@@ -1,7 +1,7 @@
 <template>
 <div>123</div>
-<div>456</div>
-  <span>hehadfa;</span>
+ <div>f798789</div>
+ <img src=""/>
 </template>
 
 <script type="text/ecmascript-6">
