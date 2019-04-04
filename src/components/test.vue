@@ -1,5 +1,6 @@
 <template>
 <div>123</div>
+<div>789</div>
 </template>
 
 <script type="text/ecmascript-6">
