@@ -1,6 +1,5 @@
 <template>
 <div>123</div>
-<p>123</p>
 <div>789
 </div>
   <span>hehadf</span>
