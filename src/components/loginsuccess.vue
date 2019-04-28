@@ -8,7 +8,10 @@
 		<button type="button" @click="add">添加</button>
 		<button type="button" @click="dec">减少</button>
 		<div>
-			<el-button type="danger" @click="logout">退出</el-button>
+			<button type="button" @click="logout">退出</button>
+		</div>
+		<div>
+			<button type="button" @click="toIview">跳转到iview测试界面</button>
 		</div>
 		<div>图标测试
 			<i class="fa fa-female fa-lg"></i> fa-lg
@@ -28,6 +31,11 @@
 			])
 		},
 		methods: {
+			toIview() {
+				this.$router.push({
+					path:'/iviewtest'
+				})
+			},
 			logout() {
 				this.loginout("hehe");
 			    this.$router.back();

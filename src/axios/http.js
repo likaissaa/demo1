@@ -1,17 +1,22 @@
 import axios from 'axios'
 import store from '../store/index.js'
 import {router} from '../router/index.js'
+import config from '@/config/index.js'
+import QS from 'qs';
+
+
+const baseUrl = process.env.NODE_ENV === 'development' ? config.baseUrl.dev : ""
 //axios 全局配置
 axios.defaults.timeout = 5000;
-/*axios.defaults.baseURL = "https://api.github.com";*/
+axios.defaults.baseURL = baseUrl
 
 //紧接着配置他的拦截器
 axios.interceptors.request.use(
 	function(config) {
-		if(store.state.user.token) {
-			console.log("我来啊啊啊啊="+store.state.user.token)
-			config.headers.Authorization = `token ${store.state.user.token}`;
-		}
+		// if(store.state.user.token) {
+		// 	console.log("我来啊啊啊啊="+store.state.user.token)
+		// 	config.headers.Authorization = `token ${store.state.user.token}`;
+		// }
 		return config
 	},
 

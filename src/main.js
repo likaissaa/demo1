@@ -4,17 +4,15 @@ import Vue from 'vue'
 import App from './App'
 import vueMagnify from 'vue-magnify'
 import store from './store/index';
+import 'iview/dist/styles/iview.css';
 import {
 	router
 } from './router'
 import axios from './axios/http.js'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
+// 实际打包时应该不引入mock
+if (process.env.NODE_ENV !== 'production') require('@/mock')
 Vue.use(vueMagnify)
-
-Vue.use(ElementUI, {
-	size: 'small'
-})
+// Vue.use(iView)
 Vue.config.productionTip = false
 Vue.prototype.axios = axios;
 /* eslint-disable no-new */
