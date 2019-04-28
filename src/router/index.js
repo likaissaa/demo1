@@ -6,7 +6,6 @@ import Login from '@/components/login/login.vue'
 import Work from '@/components/work.vue'
 import store from '../store/index';
 import Loginsuccess from '@/components/loginsuccess'
-import IviewTest from '@/components/iviewtest'
 Vue.use(Router)
  // 今后使用异步加载路由的方式开发
 
@@ -32,12 +31,7 @@ export const router = new Router({
 		{
 			path: '/loginsuccess',
 			component: Loginsuccess
-		},
-		{
-			path: '/iviewtest',
-			component: IviewTest
 		}
-
  ]
 })
 
