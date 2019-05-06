@@ -5,10 +5,10 @@ import config from '@/config/index.js'
 import QS from 'qs';
 
 
-const baseUrl = process.env.NODE_ENV === 'development' ? config.baseUrl.dev : ""
+//const baseUrl = process.env.NODE_ENV === 'development' ? config.baseUrl.dev : ""
 //axios 全局配置
 axios.defaults.timeout = 5000;
-axios.defaults.baseURL = baseUrl
+//axios.defaults.baseURL = baseUrl
 
 //紧接着配置他的拦截器
 axios.interceptors.request.use(

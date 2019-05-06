@@ -1,4 +1,5 @@
 import {login} from '@/api/login.js'
+
 export const increment=({commit})=>{
 	return new Promise((resolve, reject) => {
 		setTimeout(() => {
@@ -22,7 +23,6 @@ export const handleLogin=({commit}, {userName, password}) =>{
      if(res.data.success) {
       commit('LOGIN',res.data.data.token)
      } else {
-       console.log("----------------------------")
        console.log(res.data.message)
      }
      
@@ -32,4 +32,5 @@ export const handleLogin=({commit}, {userName, password}) =>{
     })
   })
 }
+
 

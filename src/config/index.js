@@ -16,8 +16,9 @@ export default {
   /**
    * @description api请求基础路径
    */
+  // https://www.easy-mock.com/mock/5cad94319fc6661f6ad5b3ca/findid/
   baseUrl: {
-    dev: 'https://www.easy-mock.com/mock/5cad94319fc6661f6ad5b3ca/findid/',
+    dev: '',
   },
   /**
    * @description 默认打开的首页的路由name值，默认为home

@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Register from '@/components/register.vue'
 import Less from '@/components/less.vue'
 import Login from '@/components/login/login.vue'
 import Work from '@/components/work.vue'
 import store from '../store/index';
 import Loginsuccess from '@/components/loginsuccess'
+import Info from '@/components/info'
 Vue.use(Router)
  // 今后使用异步加载路由的方式开发
 
@@ -14,15 +14,11 @@ export const router = new Router({
 	routes: [
     {
     path:'/',
-    component:Login,
+    component:Loginsuccess,
 	  },
     {
       path:'/less',
       component:Less
-		},
-		{
-			path: '/register',
-			component: Register
 		},
 		{
 			path: '/work',
@@ -31,6 +27,10 @@ export const router = new Router({
 		{
 			path: '/loginsuccess',
 			component: Loginsuccess
+		},
+		{
+			path: '/info',
+			component: Info
 		}
  ]
 })

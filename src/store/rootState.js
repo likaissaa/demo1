@@ -1,7 +1,8 @@
 const state={
 	count:0,
 	user:"",
-	token:''
+	token:'',
+	userlist: [],
 }
 
 export default state;

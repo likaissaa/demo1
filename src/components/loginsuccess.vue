@@ -1,68 +1,69 @@
 <template>
-	<div>
-		welcome
-		<div class="red">
-			{{user}}
-		</div>
-		<div class="red"> 当前数字{{count}}</div>
-		<button type="button" @click="add">添加</button>
-		<button type="button" @click="dec">减少</button>
-		<div>
-			<button type="button" @click="logout">退出</button>
-		</div>
-		<div>
-			<button type="button" @click="toIview">跳转到iview测试界面</button>
-		</div>
-		<div>图标测试
-			<i class="fa fa-female fa-lg"></i> fa-lg
-		</div>
-	</div>
+  <div>
+    <!-- 表格展示用户添加删除功能 -->
+    <Table :columns="usercolumn" :data="userlist">
+      <template slot-scope="{ row, index }" slot="action">
+        <Button type="primary" size="small" style="margin-right: 5px" @click="update(index)">修改</Button>
+        <Button type="error" size="small" @click="remove(index)">删除</Button>
+      </template>
+    </Table>
+  </div>
 </template>
 
 <script type="text/javascript">
-	import {
-		mapGetters,mapMutations,mapActions
-	} from 'vuex'
-	export default {
-		computed:{
-			...mapGetters([
-				'user',
-				'count'
-			])
-		},
-		methods: {
-			toIview() {
-				this.$router.push({
-					path:'/iviewtest'
-				})
-			},
-			logout() {
-				this.loginout("hehe");
-			    this.$router.back();
-			},
-			add() {
-				this.increment(this.count).then((res)=> console.log(res));
-			},
-			dec() {
-				this.decrement(this.count);
-			},
-			...mapMutations({
-				loginout : 'LOGINOUT'
-			}),
-			...mapActions([
-				'increment',
-				'decrement'
-			])
-
-		}
-	}
+import { mapGetters, mapMutations, mapActions } from "vuex";
+import { userList } from "@/api/user.js";
+export default {
+  data() {
+    return {
+      userlist: [],
+      usercolumn: [
+        {
+          title: "名称",
+          key: "name"
+        },
+        {
+          title: "年龄",
+          key: "age"
+        },
+        {
+          title: "操作",
+          slot: "action",
+          width: 150,
+          align: "center"
+        }
+      ]
+    };
+  },
+  mounted() {
+    // 完成对基本信息的增删改等操作
+    // 初始化的user 后端的列表使用iview 标哥显示
+    // 然后对表哥进行 查询 然后通过名称 或者通过id 查找详细信息等
+    userList()
+      .then(res => {
+        this.userlist = res.data;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  },
+  methods: {
+    update(index) {
+     this.$router.push({path: '/info', query: {id: this.userlist[index].id}})
+    },
+    remove(index) {
+      this.userlist.splice(index, 1);
+    }
+  }
+};
 </script>
 
 <style lang="stylus" scoped rel="stylesheet/stylus">
+@import '~common/stylus/icon.styl';
 
-  @import "~common/stylus/icon.styl"
-	.red 
-		color: red;
-		font-size: 30px;
-		border: 2px solid black;
+.red {
+  color: red;
+  font-size: 30px;
+  border: 2px solid black;
+}
 </style>
