@@ -1,18 +1,13 @@
-import axios from '@/axios/http.js'
-import Qs from 'qs'
-export const userList = () => {
-  return axios.get('/api/list')
-}
-export const userById = (id) => {
-  return axios.get('/api/getlistbyid',{ 
-     params: {id: id}
-    })
-}
 
-export const update = (user) => {
-  let param = new URLSearchParams()
-param.append('id', user.id)
-param.append('name', user.name)
-param.append('age', user.age)
-  return axios.post('/api/update', param)
-}
+import Qs from "qs";
+import axios from '@/api/promise.js'
+export const userList = () => {
+  return axios("/api/list","get",{});
+};
+export const userById = id => {
+  return axios("/api/getlistbyid","get",{ id: id });
+};
+
+export const update = user => {
+  return axios("/api/update","post", Qs.stringify(user));
+};

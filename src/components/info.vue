@@ -31,8 +31,8 @@ export default {
     const id = this.$route.query.id;
     userById(id)
       .then(res => {
-        this.formInline.name = res.data.name;
-        this.formInline.age = res.data.age;
+        this.formInline.name = res.name;
+        this.formInline.age = res.age;
       })
       .catch(err => {
         console.log(err);
@@ -47,7 +47,7 @@ export default {
           id: this.$route.query.id
       }
       update(user).then(res => {
-          if(res.data.success) {
+          if(res.success) {
               this.$router.back();
           }
       }).catch( err => {console.log(err)

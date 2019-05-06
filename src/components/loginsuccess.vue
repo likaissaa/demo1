@@ -41,7 +41,7 @@ export default {
     // 然后对表哥进行 查询 然后通过名称 或者通过id 查找详细信息等
     userList()
       .then(res => {
-        this.userlist = res.data;
+        this.userlist = res
       })
       .catch(err => {
         console.log(err);
