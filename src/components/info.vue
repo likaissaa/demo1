@@ -29,7 +29,8 @@ export default {
   },
   mounted() {
     const id = this.$route.query.id;
-    userById(id)
+    if(id!= undefined) {
+       userById(id)
       .then(res => {
         this.formInline.name = res.name;
         this.formInline.age = res.age;
@@ -37,6 +38,8 @@ export default {
       .catch(err => {
         console.log(err);
       });
+    } 
+   
   },
   methods: {
     handleSubmit() {

@@ -1,6 +1,7 @@
 <template>
   <div>
     <!-- 表格展示用户添加删除功能 -->
+     <router-link to="/info"><Button type="primary">添加数据</Button></router-link>
     <Table :columns="usercolumn" :data="userlist">
       <template slot-scope="{ row, index }" slot="action">
         <Button type="primary" size="small" style="margin-right: 5px" @click="update(index)">修改</Button>
@@ -12,7 +13,7 @@
 
 <script type="text/javascript">
 import { mapGetters, mapMutations, mapActions } from "vuex";
-import { userList } from "@/api/user.js";
+import { userList, remove } from "@/api/user.js";
 export default {
   data() {
     return {
@@ -52,7 +53,15 @@ export default {
      this.$router.push({path: '/info', query: {id: this.userlist[index].id}})
     },
     remove(index) {
-      this.userlist.splice(index, 1);
+      remove({id:this.userlist[index].id}).then(res => {
+        if(res.success) {
+          return userList()
+        }
+      }).then(res => {
+          this.userlist = res
+      }).catch(err => {
+        console.log(err)
+      })  
     }
   }
 };

@@ -11,3 +11,7 @@ export const userById = id => {
 export const update = user => {
   return axios("/api/update","post", Qs.stringify(user));
 };
+
+export const remove = user => {
+  return axios("/api/remove","post", Qs.stringify(user))
+}
