@@ -1,20 +1,21 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Less from '@/components/less.vue'
-import Login from '@/components/login/login.vue'
 import Work from '@/components/work.vue'
 import store from '../store/index';
-import Loginsuccess from '@/components/loginsuccess'
-import Info from '@/components/info'
+import User from '@/components/User'
+import Useradd from '@/components/useradd'
+import Depart from '@/components/depart'
+import Index from '@/components/index'
+import Departadd from '@/components/departadd'
 Vue.use(Router)
  // 今后使用异步加载路由的方式开发
-
 export const router = new Router({
 	mode: 'history',
 	routes: [
     {
     path:'/',
-    component:Loginsuccess,
+    component:Index,
 	  },
     {
       path:'/less',
@@ -25,12 +26,20 @@ export const router = new Router({
 			component: Work
 		},
 		{
-			path: '/loginsuccess',
-			component: Loginsuccess
+			path: '/user',
+			component: User
 		},
 		{
 			path: '/info',
-			component: Info
+			component: Useradd
+		},
+		{
+			path: '/depart',
+			component: Depart
+		},
+		{
+			path: '/departadd',
+			component: Departadd
 		}
  ]
 })
