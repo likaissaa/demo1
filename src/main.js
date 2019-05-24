@@ -5,7 +5,6 @@ import App from './App'
 import store from './store/index';
 import iView from 'iview';
 import 'iview/dist/styles/iview.css';
-
 import {
 	router
 } from './router'

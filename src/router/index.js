@@ -8,6 +8,7 @@ import Useradd from '@/components/useradd'
 import Depart from '@/components/depart'
 import Index from '@/components/index'
 import Departadd from '@/components/departadd'
+import Uploads from '@/components/uploads'
 Vue.use(Router)
  // 今后使用异步加载路由的方式开发
 export const router = new Router({
@@ -40,6 +41,10 @@ export const router = new Router({
 		{
 			path: '/departadd',
 			component: Departadd
+		},
+		{
+			path: '/uploads',
+			component: Uploads
 		}
  ]
 })

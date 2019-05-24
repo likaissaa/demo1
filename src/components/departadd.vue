@@ -25,25 +25,25 @@ export default {
   },
   mounted() {
     const id = this.$route.query.id;
-    if (id != undefined) {
-      userById(id)
-        .then(res => {
-          this.formInline.depname = res.dep_name;
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
+    if(id!= undefined) {
+       depById(id)
+      .then(res => {
+        this.formInline.depname = res.dep_name;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+    } 
   },
   components: {},
   methods: {
     handleSubmit() {
       // 保存 post 上传保存
-      const user = {
+      const dep = {
         dep_name: this.formInline.depname,
         id: this.$route.query.id
       };
-      update(user)
+      update(dep)
         .then(res => {
           if (res.success) {
             this.$router.back();

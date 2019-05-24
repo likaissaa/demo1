@@ -47,6 +47,22 @@
       },
    components: {
 
+   },
+   methods: {
+     update(index) {
+     this.$router.push({path: '/departadd', query: {id: this.deplist[index].id}})
+    },
+    remove(index) {
+      remove({id:this.deplist[index].id}).then(res => {
+        if(res.success) {
+          return depList()
+        }
+      }).then(res => {
+          this.deplist = res
+      }).catch(err => {
+        console.log(err)
+      })  
+    }
    }
  }
 </script>

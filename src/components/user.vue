@@ -28,6 +28,14 @@ export default {
           key: "age"
         },
         {
+          title: "部门",
+          key: "dep_name"
+        },
+        {
+          title: "图片",
+          key: "userimg"
+        },
+        {
           title: "操作",
           slot: "action",
           width: 150,
@@ -62,6 +70,9 @@ export default {
       }).catch(err => {
         console.log(err)
       })  
+    },
+    exportExcel() {
+     
     }
   }
 };
